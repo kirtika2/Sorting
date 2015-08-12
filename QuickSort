@@ -1,0 +1,51 @@
+import java.util.Arrays;
+
+
+public class QuickSort {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int [] a = {3,4,1,8,34,76,12,9,22,66,11};
+		sort(a);
+		System.out.println("Sorted array is : "+Arrays.toString(a));
+	}
+
+	private static void sort(int[] a) {
+		int left = 0;
+		int right = a.length-1;
+		quickSort(a,left,right);
+	}
+
+	private static void quickSort(int[] a, int left, int right) {
+		if(left >= right)
+			return;
+		
+		int partition = partition(a,left,right);
+		
+		quickSort(a, left, partition -1);
+		quickSort(a, partition +1, right);
+	}
+
+	private static int partition(int[] a, int left, int right) {
+
+		int leftCursor = left -1;
+		int pivot = a[right];
+		for(int i =left ; i <= right-1 ;i++){
+			if(a[i] <= pivot){
+				leftCursor = leftCursor +1;
+				swap(a,i, leftCursor);
+			}
+		}
+		swap(a,++leftCursor,right);
+		return leftCursor;
+	}
+
+	private static void swap(int []a,int i, int j) {
+		int temp = a[i];
+		a[i]= a[j];
+		a[j] = temp;
+	}
+
+}
