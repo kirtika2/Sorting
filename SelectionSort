@@ -1,0 +1,27 @@
+import java.util.Arrays;
+
+
+public class SelectionSort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int b[]={4,2,78,34,11,33,98,45,37,29,43,94,1,5};
+		int min,temp;
+		for(int i=0;i<b.length;i++){
+			min=i;
+			for(int j=i+1;j<b.length;j++){
+				if(b[j]<b[min]){
+					min=j;
+				}
+				
+			}
+			if(min != i){
+			    temp=b[i];
+				b[i]=b[min];
+				b[min]=temp;
+			}
+		}
+		System.out.println("Sorted array is : " + Arrays.toString(b));
+	}
+
+}
