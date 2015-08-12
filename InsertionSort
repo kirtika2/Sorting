@@ -1,0 +1,26 @@
+public class InsertionSort {
+	
+	public void insertionSortIncreasing(int[] arr){
+		int i,j,key;
+		for(j=1; j<arr.length; j++){
+			key = arr[j];
+			for(i=j-1; i>=0 && arr[i]>key; i--){
+				arr[i+1]= arr[i];
+			}
+			arr[i+1]= key;
+		}
+	}
+	
+	
+	public void insertionSortDecreasing(int[] arr){
+		int i,j,key;
+		for(j=1; j<arr.length; j++){
+			key = arr[j];
+			for(i=j-1; i>=0 && arr[i]<key; i--){
+				arr[i+1]= arr[i];
+			}
+			arr[i+1]= key;
+		}
+	}
+
+}
